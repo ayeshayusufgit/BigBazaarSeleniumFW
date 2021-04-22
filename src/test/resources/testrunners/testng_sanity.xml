@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Demo Cart Test automtion regression suite"
+	thread-count="2" parallel="tests" verbose="3">
+
+	<listeners>
+		<listener
+			class-name="com.qa.bigbazaar.listeners.ExtentReportListener" />
+		<listener
+			class-name="com.qa.bigbazaar.listeners.AllureReportListener" />
+	</listeners>
+
+	<test name="FP Test">
+		<classes>
+			<class name="com.qa.bigbazaar.test.AddFuturePayTest" />
+			<class name="com.qa.bigbazaar.test.SearchAddProductsFPOrderPlacementTest" />
+		</classes>
+
+	</test>
+</suite>
