@@ -1,7 +1,6 @@
 package com.qa.bigbazaar.pojos;
 
 public class Item {
-    //POJO for items
 	
 	private String itemName;
 	private String itemMRP;
