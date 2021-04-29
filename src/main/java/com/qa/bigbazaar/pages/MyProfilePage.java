@@ -51,6 +51,12 @@ public class MyProfilePage {
 	}
 
 	public FuturepayPage clickFuturePayWallet() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		elementUtil.waitForElementVisible(fpWalletLink, 10);
 		elementUtil.doClick(fpWalletLink);
 		return new FuturepayPage(driver);
