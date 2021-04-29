@@ -59,6 +59,12 @@ public class FuturepayPage {
 	}
 
 	public double getFpToppedUpValue() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		elementUtil.waitForElementVisible(fpNewToppedValue, 10);
 		double toppedValue=0.0;
 		if (elementUtil.doIsDisplayed(fpNewToppedValue))

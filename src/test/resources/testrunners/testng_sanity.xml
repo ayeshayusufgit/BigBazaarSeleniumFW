@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Demo Cart Test automtion regression suite"
-	thread-count="2" parallel="tests" verbose="3">
+	thread-count="1" parallel="tests" verbose="3">
 
 	<listeners>
 		<listener
@@ -14,7 +14,6 @@
 	<test name="FP Test">
 		<classes>
 			<class name="com.qa.bigbazaar.test.AddFuturePayTest" />
-			<class name="com.qa.bigbazaar.test.SearchAddProductsFPOrderPlacementTest" />
 		</classes>
 
 	</test>

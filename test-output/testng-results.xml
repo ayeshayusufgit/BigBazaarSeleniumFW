@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="43219" started-at="2021-04-22T09:43:01Z" finished-at="2021-04-22T09:43:44Z">
+  <suite name="Default suite" duration-ms="65963" started-at="2021-04-29T11:05:34Z" finished-at="2021-04-29T11:06:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="43219" started-at="2021-04-22T09:43:01Z" finished-at="2021-04-22T09:43:44Z">
+    <test name="Default test" duration-ms="65963" started-at="2021-04-29T11:05:34Z" finished-at="2021-04-29T11:06:40Z">
       <class name="com.qa.bigbazaar.test.AddFuturePayTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@2aa6311a]" name="setUp" is-config="true" duration-ms="11264" started-at="2021-04-22T09:43:01Z" finished-at="2021-04-22T09:43:12Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@7b02e036]" name="setUp" is-config="true" duration-ms="22424" started-at="2021-04-29T11:05:34Z" finished-at="2021-04-29T11:05:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="homePageSetup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@2aa6311a]" name="homePageSetup" is-config="true" duration-ms="6891" started-at="2021-04-22T09:43:12Z" finished-at="2021-04-22T09:43:19Z">
+        <test-method status="PASS" signature="homePageSetup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@7b02e036]" name="homePageSetup" is-config="true" duration-ms="7069" started-at="2021-04-29T11:05:56Z" finished-at="2021-04-29T11:06:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageSetup -->
-        <test-method status="PASS" signature="testFuturepayTopup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@2aa6311a]" name="testFuturepayTopup" duration-ms="23975" started-at="2021-04-22T09:43:19Z" finished-at="2021-04-22T09:43:43Z">
+        <test-method status="PASS" signature="testFuturepayTopup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@7b02e036]" name="testFuturepayTopup" duration-ms="35082" started-at="2021-04-29T11:06:03Z" finished-at="2021-04-29T11:06:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFuturepayTopup -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@2aa6311a]" name="tearDown" is-config="true" duration-ms="804" started-at="2021-04-22T09:43:43Z" finished-at="2021-04-22T09:43:44Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@7b02e036]" name="tearDown" is-config="true" duration-ms="1201" started-at="2021-04-29T11:06:39Z" finished-at="2021-04-29T11:06:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
