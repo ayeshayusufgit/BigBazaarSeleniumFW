@@ -35,6 +35,12 @@ public class FuturepayTopupPage {
 
 	public AxisSimulatorTopupPage fpRecharge(String topUpAmount, String cardNum, String cardExpiry, String cvv,
 			String cardName) {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		elementUtil.doSendKeys(amountTextbox, topUpAmount);
 		// elementUtil.clickWhenReady(cvvTextbox, 10);
 		// elementUtil.doSendKeys(cvvTextbox, cvv);
