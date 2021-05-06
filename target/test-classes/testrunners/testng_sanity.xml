@@ -15,6 +15,5 @@
 		<classes>
 			<class name="com.qa.bigbazaar.test.AddFuturePayTest" />
 		</classes>
-
 	</test>
 </suite>
