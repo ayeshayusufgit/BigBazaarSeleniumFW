@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -13,6 +15,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -24,6 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverFactory {
 	public WebDriver driver;
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
+	public Properties prop;
 
 	/**
 	 * 
@@ -42,13 +47,21 @@ public class DriverFactory {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
 			WebDriverManager.chromedriver().setup();
-			tlDriver.set(new ChromeDriver(options));
+			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
+				init_remoteDriver("chrome");
+			} else {
+				tlDriver.set(new ChromeDriver());
+			}
 
 			break;
 
 		case "firefox":
 			WebDriverManager.firefoxdriver().setup();
-			tlDriver.set(new FirefoxDriver());
+			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
+				init_remoteDriver("firefox");
+			} else {
+				tlDriver.set(new FirefoxDriver());
+			}
 			break;
 
 		case "safari":
@@ -67,6 +80,31 @@ public class DriverFactory {
 
 	public synchronized WebDriver getDriver() {
 		return tlDriver.get();
+	}
+
+	public void init_remoteDriver(String browser) {
+
+		if (browser.equals("chrome")) {
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setCapability("browserName", "chrome");
+			try {
+				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
+				// tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), cap));
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (browser.equals("firefox")) {
+			DesiredCapabilities cap =  DesiredCapabilities.firefox();
+			cap.setCapability("browserName", "firefox");
+			try {
+				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
+				// tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), cap));
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -92,7 +130,8 @@ public class DriverFactory {
 
 	public String getScreenshot() {
 		File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String filePath = System.getProperty("user.dir") + "/screenshot" + System.currentTimeMillis();
+		String filePath = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+		System.out.println(filePath);
 		File dest = new File(filePath);
 		try {
 			FileUtils.copyFile(src, dest);
