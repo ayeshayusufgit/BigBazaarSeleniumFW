@@ -8,12 +8,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,38 +22,25 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-/**
- * 
- * @author ayesha yusuf
- */
 public class DriverFactory {
+
 	public WebDriver driver;
+	// Threadlocal concept needs to be applied on WebDriver
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
 	public Properties prop;
 
-	/**
-	 * 
-	 * @param browserName
-	 * @return WebDriver reference on the bases of the given browser
-	 * 
-	 */
-
 	public WebDriver init_driver(Properties prop) {
 		String browserName = prop.getProperty("browser");
-
-		System.out.println("Browser name is:" + browserName);
+		System.out.println("The browser:" + browserName);
 
 		switch (browserName.trim()) {
 		case "chrome":
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--disable-notifications");
 			WebDriverManager.chromedriver().setup();
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
 				init_remoteDriver("chrome");
 			} else {
 				tlDriver.set(new ChromeDriver());
 			}
-
 			break;
 
 		case "firefox":
@@ -69,16 +57,20 @@ public class DriverFactory {
 			break;
 
 		default:
-			System.out.println("Please pass the correct browser name:" + browserName);
-			break;
+			System.out.println("Please pass the correct browser name");
+			System.out.println("Pass only chrome|firefox|safari in the config.properties");
 		}
 
+		// driver().manage().deleteAllCookies();
+		// driver().manage().window().maximize();
+		// return driver;
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
+		// return the local copy of the driver
 		return getDriver();
 	}
 
-	public synchronized WebDriver getDriver() {
+	public static synchronized WebDriver getDriver() {
 		return tlDriver.get();
 	}
 
@@ -87,6 +79,7 @@ public class DriverFactory {
 		if (browser.equals("chrome")) {
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setCapability("browserName", "chrome");
+
 			try {
 				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
 				// tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), cap));
@@ -95,7 +88,7 @@ public class DriverFactory {
 				e.printStackTrace();
 			}
 		} else if (browser.equals("firefox")) {
-			DesiredCapabilities cap =  DesiredCapabilities.firefox();
+			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setCapability("browserName", "firefox");
 			try {
 				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
@@ -107,38 +100,36 @@ public class DriverFactory {
 		}
 	}
 
-	/**
-	 * This method will initialize the properties from config.properties file
-	 * 
-	 */
 	public Properties init_prop() {
 		Properties prop = null;
 		try {
 			FileInputStream fis = new FileInputStream("./src/test/resources/config/config.properties");
 			prop = new Properties();
-			prop.load(fis);// inside the property file all the properties will be stored in the form of
-							// Key/Value pairs, prop.load is used to load the properties
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			prop.load(fis);
+		} catch (IOException ex) {
+			ex.printStackTrace();
 		}
 		return prop;
 	}
 
-	public String getScreenshot() {
-		File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String filePath = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
-		System.out.println(filePath);
-		File dest = new File(filePath);
-		try {
-			FileUtils.copyFile(src, dest);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return filePath;
+	public static String getBase64Screenshot() throws IOException {
+	    String encodedBase64 = null;
+	    FileInputStream fileInputStream = null;
+	    File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+		String dest = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+	
+	    File finalDestination = new File(dest);
+	    FileUtils.copyFile(src, finalDestination);
+
+	    try {
+	        fileInputStream =new FileInputStream(finalDestination);
+	        byte[] bytes =new byte[(int)finalDestination.length()];
+	        fileInputStream.read(bytes);
+	        encodedBase64 = new String(Base64.encodeBase64(bytes));
+	    }catch (FileNotFoundException e){
+	        e.printStackTrace();
+	    }
+
+	    return encodedBase64;
 	}
 }

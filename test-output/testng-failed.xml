@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="3" name="Failed suite [Demo Cart Test automtion regression suite]" parallel="tests">
+  <listeners>
+    <listener class-name="com.qa.bigbazaar.listeners.ExtentReportListener"/>
+    <listener class-name="com.qa.bigbazaar.listeners.AllureReportListener"/>
+  </listeners>
+  <test thread-count="1" verbose="3" name="FP Test(failed)" parallel="tests">
     <classes>
       <class name="com.qa.bigbazaar.test.AddFuturePayTest">
         <methods>
@@ -12,5 +16,5 @@
         </methods>
       </class> <!-- com.qa.bigbazaar.test.AddFuturePayTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- FP Test(failed) -->
+</suite> <!-- Failed suite [Demo Cart Test automtion regression suite] -->
