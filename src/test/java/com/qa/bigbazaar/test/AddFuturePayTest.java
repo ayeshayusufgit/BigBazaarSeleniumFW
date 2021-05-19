@@ -25,21 +25,20 @@ public class AddFuturePayTest extends BaseTest {
 	@Description("Verify the FuturePay Test")
 	@Severity(SeverityLevel.CRITICAL)
 	@Test(priority = 1)
-	public void testFuturepayTopup() {
-		
+	public void futurepayTopupTest() {
+
 		double fpActualAmount = myProfilePage.getActualFPBalance();
 		futurepayPage = myProfilePage.clickFuturePayWallet();
 		Assert.assertEquals(futurepayPage.getFPPageTitle(), "Future Pay Wallet");
-		
+
 		futurepayTopupPage = futurepayPage.clickAddMoneyButton();
 		Assert.assertTrue(futurepayTopupPage.getFPTopuPageURL());
-		
-		
-		axisTopupPage = futurepayTopupPage.fpRecharge(prop.getProperty("fpTopup"), prop.getProperty("cardNum"),prop.getProperty("cardExpiry"),prop.getProperty("cardCvv"),prop.getProperty("cardName"));
+
+		axisTopupPage = futurepayTopupPage.fpRecharge(prop.getProperty("fpTopup"), prop.getProperty("cardNum"),
+				prop.getProperty("cardExpiry"), prop.getProperty("cardCvv"), prop.getProperty("cardName"));
 		futurepayPage = axisTopupPage.submitOtp();
 		Assert.assertEquals(futurepayPage.getFpTopupSuccessMesssage(),
 				"Future Pay Add balance Transaction Success &amp; Verified");
-		Assert.assertTrue(futurepayPage.getFpToppedUpValue()>fpActualAmount);
+		Assert.assertTrue(futurepayPage.getFpToppedUpValue() > fpActualAmount);
 	}
-
 }
