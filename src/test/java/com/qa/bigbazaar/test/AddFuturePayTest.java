@@ -6,6 +6,14 @@ import org.testng.annotations.Test;
 
 import com.qa.bigbazaar.base.BaseTest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+
+@Epic("Epic 200: BigBazaar WebApp Application Automation")
+@Story("UserStory 201 : FuturePay Topup Feature testing")
 public class AddFuturePayTest extends BaseTest {
 
 	@BeforeClass
@@ -14,7 +22,9 @@ public class AddFuturePayTest extends BaseTest {
 		myProfilePage = homePage.clickMyProfileIcon();
 	}
 
-	@Test
+	@Description("Verify the FuturePay Test")
+	@Severity(SeverityLevel.CRITICAL)
+	@Test(priority = 1)
 	public void testFuturepayTopup() {
 		
 		double fpActualAmount = myProfilePage.getActualFPBalance();

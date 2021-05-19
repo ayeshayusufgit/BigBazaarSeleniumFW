@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 import com.qa.bigbazaar.utils.ElementUtil;
 
+import io.qameta.allure.Step;
+
 public class MyProfilePage {
 
 	private WebDriver driver;
@@ -18,6 +20,7 @@ public class MyProfilePage {
 		elementUtil = new ElementUtil(driver);
 	}
 
+	@Step("Get Actual Future Pay Balance")
 	public double getActualFPBalance() {
 		try {
 			Thread.sleep(3000);
@@ -50,6 +53,7 @@ public class MyProfilePage {
 		return null;
 	}
 
+	@Step("Click on Future Pay Wallet Link")
 	public FuturepayPage clickFuturePayWallet() {
 		try {
 			Thread.sleep(5000);

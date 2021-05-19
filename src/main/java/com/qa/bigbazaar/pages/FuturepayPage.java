@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.qa.bigbazaar.utils.ElementUtil;
 import com.qa.bigbazaar.utils.JavaScriptUtil;
 
+import io.qameta.allure.Step;
+
 public class FuturepayPage {
 
 	private WebDriver driver;
@@ -28,6 +30,7 @@ public class FuturepayPage {
 		javaScriptUtil = new JavaScriptUtil(driver);
 	}
 
+	@Step("Get Future Pay Title")
 	public String getFPPageTitle() {
 		elementUtil.waitForElementVisible(fpTitle, 10);
 		if (elementUtil.doIsDisplayed(fpTitle)) {
@@ -36,6 +39,7 @@ public class FuturepayPage {
 		return null;
 	}
 
+	@Step("Click Add Money Button")
 	public FuturepayTopupPage clickAddMoneyButton() {
 		try {
 			Thread.sleep(4000);
@@ -47,6 +51,7 @@ public class FuturepayPage {
 		return new FuturepayTopupPage(driver);
 	}
 
+	@Step("Get Future Pay Topup Success Message")
 	public String getFpTopupSuccessMesssage() {
 		/*
 		 * elementUtil.waitForElementVisible(fpTopupSuccessMessage, 10); if
@@ -58,6 +63,7 @@ public class FuturepayPage {
 		return elementUtil.doGetAttribute(fpTopupSuccessMessage, "innerHTML");
 	}
 
+	@Step("Get Future Pay Topped Up Value")
 	public double getFpToppedUpValue() {
 		try {
 			Thread.sleep(5000);

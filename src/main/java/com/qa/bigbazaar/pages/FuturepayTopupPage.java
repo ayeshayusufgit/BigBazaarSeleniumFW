@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import com.qa.bigbazaar.utils.ElementUtil;
 import com.qa.bigbazaar.utils.JavaScriptUtil;
 
+import io.qameta.allure.Step;
+
 public class FuturepayTopupPage {
 
 	private WebDriver driver;
@@ -29,10 +31,12 @@ public class FuturepayTopupPage {
 		javaScriptUtil = new JavaScriptUtil(driver);
 	}
 
+	@Step("Get Future Pay Topup Page URL")
 	public boolean getFPTopuPageURL() {
 		return elementUtil.waitForUrlToBe("https://preprod-web.bigb.fgcommerce.net/futurepaytopup", 10);
 	}
 
+	@Step("Future Pay Recharge")
 	public AxisSimulatorTopupPage fpRecharge(String topUpAmount, String cardNum, String cardExpiry, String cvv,
 			String cardName) {
 		try {

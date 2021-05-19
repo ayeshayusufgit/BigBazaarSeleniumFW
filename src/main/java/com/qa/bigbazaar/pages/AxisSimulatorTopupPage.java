@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 import com.qa.bigbazaar.utils.ElementUtil;
 
+import io.qameta.allure.Step;
+
 public class AxisSimulatorTopupPage {
 	
 	private WebDriver driver;
@@ -19,6 +21,7 @@ public class AxisSimulatorTopupPage {
 		elementUtil = new ElementUtil(driver);
 	}
 	
+	@Step("Submit Axis Simulator Otp")
 	public FuturepayPage submitOtp() {
 		elementUtil.waitForTitleToBe("Axis Simulator", 10);
 		elementUtil.clickWhenReady(passwordTextbox, 10);

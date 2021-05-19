@@ -79,6 +79,8 @@ public class DriverFactory {
 		if (browser.equals("chrome")) {
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setCapability("browserName", "chrome");
+			cap.setCapability("browserVersion", "85.0");
+			cap.setCapability("enableVNC", true);
 
 			try {
 				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
@@ -90,6 +92,8 @@ public class DriverFactory {
 		} else if (browser.equals("firefox")) {
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setCapability("browserName", "firefox");
+			cap.setCapability("browserVersion", "83.0");
+			cap.setCapability("enableVNC", true);
 			try {
 				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
 				// tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), cap));
@@ -113,23 +117,23 @@ public class DriverFactory {
 	}
 
 	public static String getBase64Screenshot() throws IOException {
-	    String encodedBase64 = null;
-	    FileInputStream fileInputStream = null;
-	    File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+		String encodedBase64 = null;
+		FileInputStream fileInputStream = null;
+		File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 		String dest = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
-	
-	    File finalDestination = new File(dest);
-	    FileUtils.copyFile(src, finalDestination);
 
-	    try {
-	        fileInputStream =new FileInputStream(finalDestination);
-	        byte[] bytes =new byte[(int)finalDestination.length()];
-	        fileInputStream.read(bytes);
-	        encodedBase64 = new String(Base64.encodeBase64(bytes));
-	    }catch (FileNotFoundException e){
-	        e.printStackTrace();
-	    }
+		File finalDestination = new File(dest);
+		FileUtils.copyFile(src, finalDestination);
 
-	    return encodedBase64;
+		try {
+			fileInputStream = new FileInputStream(finalDestination);
+			byte[] bytes = new byte[(int) finalDestination.length()];
+			fileInputStream.read(bytes);
+			encodedBase64 = new String(Base64.encodeBase64(bytes));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return encodedBase64;
 	}
 }
