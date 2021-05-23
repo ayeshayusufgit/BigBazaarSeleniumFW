@@ -16,11 +16,12 @@ public class ProfileManager {
 
 	public ChromeOptions getChromeOptions() {
 		chromeOptions = new ChromeOptions();
-		
+		System.out.println(prop.get("headless"));
 		if (prop.getProperty("headless").trim().equals("true")) {
 			chromeOptions.addArguments("--headless");
 		}
-		
+
+		System.out.println(prop.get("incognito"));
 		if (prop.getProperty("incognito").trim().equals("true")) {
 			chromeOptions.addArguments("--incognito");
 		}

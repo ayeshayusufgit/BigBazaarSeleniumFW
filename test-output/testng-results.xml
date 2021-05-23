@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Demo Cart Test automtion regression suite" duration-ms="74755" started-at="2021-05-13T10:52:21Z" finished-at="2021-05-13T10:53:36Z">
+  <suite name="Default suite" duration-ms="69805" started-at="2021-05-23T13:55:33Z" finished-at="2021-05-23T13:56:43Z">
     <groups>
     </groups>
-    <test name="FP Test" duration-ms="74755" started-at="2021-05-13T10:52:21Z" finished-at="2021-05-13T10:53:36Z">
+    <test name="Default test" duration-ms="69805" started-at="2021-05-23T13:55:33Z" finished-at="2021-05-23T13:56:43Z">
       <class name="com.qa.bigbazaar.test.AddFuturePayTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5972d253]" name="setUp" is-config="true" duration-ms="14804" started-at="2021-05-13T10:52:21Z" finished-at="2021-05-13T10:52:36Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5987e932]" name="setUp" is-config="true" duration-ms="15083" started-at="2021-05-23T13:55:33Z" finished-at="2021-05-23T13:55:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="homePageSetup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5972d253]" name="homePageSetup" is-config="true" duration-ms="16454" started-at="2021-05-13T10:52:36Z" finished-at="2021-05-13T10:52:52Z">
+        <test-method status="PASS" signature="homePageSetup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5987e932]" name="homePageSetup" is-config="true" duration-ms="12234" started-at="2021-05-23T13:55:48Z" finished-at="2021-05-23T13:56:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageSetup -->
-        <test-method status="FAIL" signature="testFuturepayTopup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5972d253]" name="testFuturepayTopup" duration-ms="42069" started-at="2021-05-13T10:52:52Z" finished-at="2021-05-13T10:53:34Z">
+        <test-method status="FAIL" signature="futurepayTopupTest()[pri:1, instance:com.qa.bigbazaar.test.AddFuturePayTest@5987e932]" name="futurepayTopupTest" duration-ms="42104" started-at="2021-05-23T13:56:00Z" finished-at="2021-05-23T13:56:42Z">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
               <![CDATA[Expected condition failed: waiting for presence of element located by: By.xpath: (//div[@id='displayPopupCustomMsg'])[3] (tried for 10 second(s) with 500 milliseconds interval)]]>
@@ -24,9 +24,9 @@
               <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: (//div[@id='displayPopupCustomMsg'])[3] (tried for 10 second(s) with 500 milliseconds interval)
 at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.qa.bigbazaar.utils.ElementUtil.waitForElementPresent(ElementUtil.java:220)
-at com.qa.bigbazaar.pages.FuturepayPage.getFpTopupSuccessMesssage(FuturepayPage.java:57)
-at com.qa.bigbazaar.test.AddFuturePayTest.testFuturepayTopup(AddFuturePayTest.java:30)
+at com.qa.bigbazaar.utils.ElementUtil.waitForElementPresent(ElementUtil.java:226)
+at com.qa.bigbazaar.pages.FuturepayPage.getFpTopupSuccessMesssage(FuturepayPage.java:62)
+at com.qa.bigbazaar.test.AddFuturePayTest.futurepayTopupTest(AddFuturePayTest.java:40)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -40,20 +40,26 @@ at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
 at org.testng.TestRunner.privateRun(TestRunner.java:648)
 at org.testng.TestRunner.run(TestRunner.java:505)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
-at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
-at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-at java.lang.Thread.run(Thread.java:748)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: (//div[@id='displayPopupCustomMsg'])[3]
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[@id='displayPopupCustomMsg'])[3]"}
+  (Session info: chrome=85.0.4183.121)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'FG2000122000', ip: '172.28.32.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_291'
 Driver info: org.openqa.selenium.remote.RemoteWebDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 88.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210415204500, moz:geckodriverVersion: 0.29.1, moz:headless: false, moz:processID: 448, moz:profile: /tmp/rust_mozprofilex8Jy9j, moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, platformVersion: 5.4.72-microsoft-standard-WSL2, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webdriver.remote.sessionid: f050cf20-e74b-4f79-b687-425...}
-Session ID: f050cf20-e74b-4f79-b687-425b5e75fe5d
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 85.0.4183.121, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: /tmp/.com.google.Chrome.RsvmbJ}, goog:chromeOptions: {debuggerAddress: localhost:36125}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 50030414142f999474b7d2dbc1b86175
 *** Element info: {Using=xpath, value=(//div[@id='displayPopupCustomMsg'])[3]}
 at sun.reflect.GeneratedConstructorAccessor16.newInstance(Unknown Source)
 at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -70,18 +76,18 @@ at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:3
 at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
 at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 23 more
+... 28 more
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testFuturepayTopup -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5972d253]" name="tearDown" is-config="true" duration-ms="898" started-at="2021-05-13T10:53:35Z" finished-at="2021-05-13T10:53:36Z">
+        </test-method> <!-- futurepayTopupTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5987e932]" name="tearDown" is-config="true" duration-ms="71" started-at="2021-05-23T13:56:43Z" finished-at="2021-05-23T13:56:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.qa.bigbazaar.test.AddFuturePayTest -->
-    </test> <!-- FP Test -->
-  </suite> <!-- Demo Cart Test automtion regression suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

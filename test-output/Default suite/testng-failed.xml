@@ -6,9 +6,9 @@
       <class name="com.qa.bigbazaar.test.AddFuturePayTest">
         <methods>
           <include name="setUp"/>
-          <include name="testFuturepayTopup"/>
           <include name="tearDown"/>
           <include name="homePageSetup"/>
+          <include name="futurepayTopupTest"/>
         </methods>
       </class> <!-- com.qa.bigbazaar.test.AddFuturePayTest -->
     </classes>
