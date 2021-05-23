@@ -18,9 +18,9 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.qa.bigbazaar.factory.DriverFactory;
+import com.qa.bigbazaar.factory.DriverFactory_Bac_Latest;
 
-public class ExtentReportListener_Bac extends DriverFactory implements ITestListener {
+public class ExtentReportListener_Bac extends DriverFactory_Bac_Latest implements ITestListener {
 
 	private static final String OUTPUT_FOLDER = "./build/";
 	private static final String FILE_NAME = "TestExecutionReport.html";
