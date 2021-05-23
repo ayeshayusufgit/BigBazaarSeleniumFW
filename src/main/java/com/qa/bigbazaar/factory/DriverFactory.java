@@ -10,7 +10,7 @@ import java.util.Properties;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
-
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -27,14 +27,18 @@ public class DriverFactory {
 	public WebDriver driver;
 	// Threadlocal concept needs to be applied on WebDriver
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
+	private static final Logger LOGGER=Logger.getLogger(DriverFactory.class);
+	
 	public Properties prop;
 
 	public WebDriver init_driver(Properties prop) {
 		String browserName = prop.getProperty("browser");
 		System.out.println("The browser:" + browserName);
-
+		LOGGER.info("Browser Name:"+browserName);
+		
 		switch (browserName.trim()) {
 		case "chrome":
+			LOGGER.info("Launching Chrome!!!");
 			WebDriverManager.chromedriver().setup();
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
 				init_remoteDriver("chrome");
@@ -44,6 +48,7 @@ public class DriverFactory {
 			break;
 
 		case "firefox":
+			LOGGER.info("Launching Firefox!!!");
 			WebDriverManager.firefoxdriver().setup();
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
 				init_remoteDriver("firefox");
@@ -53,10 +58,12 @@ public class DriverFactory {
 			break;
 
 		case "safari":
+			LOGGER.info("Launching Safari!!!");
 			tlDriver.set(new SafariDriver());
 			break;
 
 		default:
+			LOGGER.info("Please pass the right browser name!!!"+browserName);
 			System.out.println("Please pass the correct browser name");
 			System.out.println("Pass only chrome|firefox|safari in the config.properties");
 		}
@@ -133,7 +140,6 @@ public class DriverFactory {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 		return encodedBase64;
 	}
 }

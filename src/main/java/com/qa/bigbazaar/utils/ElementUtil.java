@@ -18,11 +18,14 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.log4testng.Logger;
+
+import com.qa.bigbazaar.*;
 
 public class ElementUtil {
 
 	private WebDriver driver;// The access of this reference variable shouldnt be provided out of the class
-
+	private static final Logger LOGGER=Logger.getLogger(ElementUtil.class);
 	// If static is used then driver/methods have to be made static
 	// No static WebDriver reference/method cannot be used in parallel execution
 	// If static is used then we are not using proper oo concept
@@ -31,7 +34,10 @@ public class ElementUtil {
 	}
 
 	public WebElement getElement(By locator) {
-		return driver.findElement(locator);
+		LOGGER.info("Locator is"+locator);
+		WebElement element=driver.findElement(locator);
+		LOGGER.info("Element is"+element.toString());
+		return element;
 	}
 
 	public void doClick(By locator) {

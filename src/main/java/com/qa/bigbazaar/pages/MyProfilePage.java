@@ -64,7 +64,6 @@ public class MyProfilePage {
 		elementUtil.waitForElementVisible(fpWalletLink, 10);
 		elementUtil.doClick(fpWalletLink);
 		return new FuturepayPage(driver);
-
 	}
 
 }
