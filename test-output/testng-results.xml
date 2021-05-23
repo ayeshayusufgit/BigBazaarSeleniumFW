@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="69805" started-at="2021-05-23T13:55:33Z" finished-at="2021-05-23T13:56:43Z">
+  <suite name="Default suite" duration-ms="82045" started-at="2021-05-23T14:01:01Z" finished-at="2021-05-23T14:02:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="69805" started-at="2021-05-23T13:55:33Z" finished-at="2021-05-23T13:56:43Z">
+    <test name="Default test" duration-ms="82045" started-at="2021-05-23T14:01:01Z" finished-at="2021-05-23T14:02:23Z">
       <class name="com.qa.bigbazaar.test.AddFuturePayTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5987e932]" name="setUp" is-config="true" duration-ms="15083" started-at="2021-05-23T13:55:33Z" finished-at="2021-05-23T13:55:48Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@1ad777f]" name="setUp" is-config="true" duration-ms="24709" started-at="2021-05-23T14:01:01Z" finished-at="2021-05-23T14:01:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="homePageSetup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5987e932]" name="homePageSetup" is-config="true" duration-ms="12234" started-at="2021-05-23T13:55:48Z" finished-at="2021-05-23T13:56:00Z">
+        <test-method status="PASS" signature="homePageSetup()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@1ad777f]" name="homePageSetup" is-config="true" duration-ms="12955" started-at="2021-05-23T14:01:26Z" finished-at="2021-05-23T14:01:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageSetup -->
-        <test-method status="FAIL" signature="futurepayTopupTest()[pri:1, instance:com.qa.bigbazaar.test.AddFuturePayTest@5987e932]" name="futurepayTopupTest" duration-ms="42104" started-at="2021-05-23T13:56:00Z" finished-at="2021-05-23T13:56:42Z">
+        <test-method status="FAIL" signature="futurepayTopupTest()[pri:1, instance:com.qa.bigbazaar.test.AddFuturePayTest@1ad777f]" name="futurepayTopupTest" duration-ms="43968" started-at="2021-05-23T14:01:39Z" finished-at="2021-05-23T14:02:23Z">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
               <![CDATA[Expected condition failed: waiting for presence of element located by: By.xpath: (//div[@id='displayPopupCustomMsg'])[3] (tried for 10 second(s) with 500 milliseconds interval)]]>
@@ -58,8 +58,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'FG2000122000', ip: '172.28.32.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_291'
 Driver info: org.openqa.selenium.remote.RemoteWebDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 85.0.4183.121, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: /tmp/.com.google.Chrome.RsvmbJ}, goog:chromeOptions: {debuggerAddress: localhost:36125}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 50030414142f999474b7d2dbc1b86175
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 85.0.4183.121, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: /tmp/.com.google.Chrome.hakSRY}, goog:chromeOptions: {debuggerAddress: localhost:34935}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: c9794ac2762555a2cc867536be51d979
 *** Element info: {Using=xpath, value=(//div[@id='displayPopupCustomMsg'])[3]}
 at sun.reflect.GeneratedConstructorAccessor16.newInstance(Unknown Source)
 at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -83,7 +83,7 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- futurepayTopupTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@5987e932]" name="tearDown" is-config="true" duration-ms="71" started-at="2021-05-23T13:56:43Z" finished-at="2021-05-23T13:56:43Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.bigbazaar.test.AddFuturePayTest@1ad777f]" name="tearDown" is-config="true" duration-ms="72" started-at="2021-05-23T14:02:23Z" finished-at="2021-05-23T14:02:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

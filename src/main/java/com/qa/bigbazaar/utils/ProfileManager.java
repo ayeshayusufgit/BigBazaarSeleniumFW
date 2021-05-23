@@ -1,5 +1,6 @@
 package com.qa.bigbazaar.utils;
 
+
 import java.util.Properties;
 
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,12 +17,11 @@ public class ProfileManager {
 
 	public ChromeOptions getChromeOptions() {
 		chromeOptions = new ChromeOptions();
-		System.out.println(prop.get("headless"));
+		
 		if (prop.getProperty("headless").trim().equals("true")) {
 			chromeOptions.addArguments("--headless");
 		}
-
-		System.out.println(prop.get("incognito"));
+		
 		if (prop.getProperty("incognito").trim().equals("true")) {
 			chromeOptions.addArguments("--incognito");
 		}

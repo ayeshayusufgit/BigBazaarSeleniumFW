@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import com.qa.bigbazaar.factory.DriverFactory_Bac_Latest;
+import com.qa.bigbazaar.factory.DriverFactory;
 import com.qa.bigbazaar.pages.AxisSimulatorOrdersPage;
 import com.qa.bigbazaar.pages.AxisSimulatorTopupPage;
 import com.qa.bigbazaar.pages.BasketPage;
@@ -24,7 +24,7 @@ import com.qa.bigbazaar.pages.SearchPage;
 public class BaseTest {
 
 	WebDriver driver;
-	DriverFactory_Bac_Latest df;
+	DriverFactory df;
 	public Properties prop;
 	public HomePage homePage;
 	public SearchPage searchPage;
@@ -43,7 +43,7 @@ public class BaseTest {
 	// setUp() to launch the browser
 	@BeforeTest
 	public void setUp() {
-		df = new DriverFactory_Bac_Latest();
+		df = new DriverFactory();
 		prop = df.init_prop();
 		driver = df.init_driver(prop);
 		driver.get(prop.getProperty("appUrl"));
