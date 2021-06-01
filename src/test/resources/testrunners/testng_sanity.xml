@@ -9,6 +9,8 @@
 			class-name="com.qa.bigbazaar.listeners.ExtentReportListener" />
 		<listener
 			class-name="com.qa.bigbazaar.listeners.AllureReportListener" />
+			<listener
+			class-name="com.qa.bigbazaar.listeners.TesultReportListener" />
 	</listeners>
 
 	<test name="FP Test">
