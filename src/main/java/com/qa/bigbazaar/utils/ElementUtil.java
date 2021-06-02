@@ -21,29 +21,35 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.log4testng.Logger;
 
 import com.qa.bigbazaar.*;
+import com.qa.bigbazaar.factory.DriverFactory;
 
 public class ElementUtil {
 
 	private WebDriver driver;// The access of this reference variable shouldnt be provided out of the class
-	private static final Logger LOGGER=Logger.getLogger(ElementUtil.class);
+	private JavaScriptUtil jsUtil;
+	private static final Logger LOGGER = Logger.getLogger(ElementUtil.class);
+
 	// If static is used then driver/methods have to be made static
 	// No static WebDriver reference/method cannot be used in parallel execution
 	// If static is used then we are not using proper oo concept
 	public ElementUtil(WebDriver driver) {
 		this.driver = driver;
+		jsUtil = new JavaScriptUtil(driver);
 	}
 
 	public WebElement getElement(By locator) {
-		LOGGER.info("Locator is"+locator);
-		WebElement element=driver.findElement(locator);
-		LOGGER.info("Element is"+element.toString());
+		LOGGER.info("Locator is" + locator);
+		WebElement element = driver.findElement(locator);
+		LOGGER.info("Element is" + element.toString());
+		if (DriverFactory.highlight.equals("true")) {
+			jsUtil.flash(element);
+		}
 		return element;
 	}
 
 	public void doClick(By locator) {
 		getElement(locator).click();
 	}
-	
 
 	public void doActionsClick(By locator) {
 		Actions action = new Actions(driver);
@@ -77,7 +83,7 @@ public class ElementUtil {
 		element.clear();
 		element.sendKeys(value);
 	}
-		
+
 	public void doSendKeys(By locator, Keys value) {
 		WebElement element = getElement(locator);
 		element.sendKeys(value);
@@ -100,9 +106,9 @@ public class ElementUtil {
 	public boolean doIsDisplayed(By locator) {
 		return getElement(locator).isDisplayed();
 	}
-	
+
 	public boolean doIsChecked(By locator) {
-		//System.out.println(getElement(locator).isSelected());	
+		// System.out.println(getElement(locator).isSelected());
 		return getElement(locator).isSelected();
 	}
 
@@ -250,7 +256,6 @@ public class ElementUtil {
 		return wait.until(ExpectedConditions.urlContains(urlValue));
 	}
 
-	
 	/**
 	 * An expectation for checking an element is clickable and enabled such that you
 	 * can click it.

@@ -28,6 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverFactory {
 
 	public WebDriver driver;
+	public static String highlight;
 	// Threadlocal concept needs to be applied on WebDriver
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
 	private static final Logger LOGGER = Logger.getLogger(DriverFactory.class);
@@ -38,6 +39,10 @@ public class DriverFactory {
 		String browserName = prop.getProperty("browser");
 		System.out.println("The browser:" + browserName);
 		LOGGER.info("Browser Name:" + browserName);
+		
+		highlight = prop.getProperty("highlight");
+		System.out.println("Highlight is:" + true);
+		
 		profileManager = new ProfileManager(prop);
 		switch (browserName.trim()) {
 		case "chrome":
