@@ -88,8 +88,8 @@ public class DriverFactory_Bac {
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setCapability("browserName", "chrome");
 			try {
-				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
-				// tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), cap));
+				//tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), cap));
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -98,8 +98,8 @@ public class DriverFactory_Bac {
 			DesiredCapabilities cap =  DesiredCapabilities.firefox();
 			cap.setCapability("browserName", "firefox");
 			try {
-				tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
-				// tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), cap));
+				//tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("hubUrl")), cap));
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
